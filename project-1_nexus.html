@@ -1,0 +1,156 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Login and Signup</title>
+</head>
+<style>
+    body{
+       
+        padding: 30px;
+
+    }
+    .form-container_1{
+        width: 300px;
+        height: 250px;
+        margin-left: 100px;
+        word-spacing: 10px;
+        background-color: rgb(194, 223, 238);
+        margin: auto;   
+        }
+    .form-container_2{
+        margin: auto;
+        width: 300px;
+        height: 250px;
+        margin-left: 100px;
+        word-spacing: 10px;
+        padding: auto;
+        background-color: rgb(194, 223, 238);
+        word-spacing: 3px;
+       
+ }
+    h1{
+        text-shadow: 2px 2px 4px aqua;
+    }
+    .container{
+        display: flex;
+        background-color: aliceblue;
+        width: 1000px;
+        height: 500px;
+        margin-left: 100px;
+       
+       text-indent: 3px;
+       text-align: center;
+       
+     }
+    .btn{
+        /* margin-top: 5px; */
+         /* margin-left: 55px; */
+        margin-top: 15px; 
+        text-align: center;
+        width: 55px;
+        height: 30px;
+
+        
+    }
+    hr{
+        border: 2px solid bl;
+    }
+    @media screen and (max-width: 600px) {
+  .container {
+    max-width: 100%;
+  }
+}
+</style>
+<body>
+    <form  class="form" method="post" action="/your-endpoint">
+    <div class="container">
+        <div class="form-container_1">
+            <h2>Login</h2>
+            <form   action="#" method="post" id="loginForm" onsubmit="return validateLoginForm()">
+                <label class="heading" for="username">Username:</label>
+                <input type="text" name="username" id="username" required>
+                <br>
+                <br>
+                
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required>
+                <br>
+                <br>
+                <button class="btn" type="submit" >Login</button>
+            </form>
+        </div>
+       
+
+        <div class="form-container_2">
+            <h2>Signup</h2>
+            <form action="#" method="post" id="signupForm" onsubmit="return validateSignupForm()">
+                <label for="newUsername">Username:</label>
+                <input type="text" name="newUsername" id="newUsername" required>
+                <br>
+                <br>
+                <label for="newPassword">Password:</label>
+                <input type="password" name="newPassword" id="newPassword" required>
+                <br>
+                <br>
+                <label for="confirmPassword">ConfirmPass:</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" required>
+                <br>
+                <br>
+                <button class="btn" type="submit" >Signup</button>
+            </form>
+        </div>
+
+    </div>
+</form>
+
+    
+
+   
+</body>
+
+<script>
+    
+    function validateLoginForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username.trim() === "" || password.trim() === "") {
+            alert("Please fill in all fields for login.");
+            return false;
+        }
+
+        
+
+        return true;
+    }
+
+    
+    function validateSignupForm() {
+        var newUsername = document.getElementById("newUsername").value;
+        var newPassword = document.getElementById("newPassword").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (newUsername.trim() === "" || newPassword.trim() === "" || confirmPassword.trim() === "") {
+            alert("Please fill in all fields for signup.");
+            return false;
+        }
+
+        if (newPassword !== confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+
+        
+
+        return true;
+    }
+
+    
+</script>
+
+</html>
